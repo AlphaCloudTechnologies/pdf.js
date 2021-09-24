@@ -15,6 +15,16 @@
 
 import { AppOptions } from "./app_options.js";
 import { PDFViewerApplication } from "./app.js";
+//////////////////////////
+
+document.addEventListener('keydown', (event)=> {
+  if(event.shiftKey || event.ctrlKey ||event.altKey){
+    let message = JSON.stringify({eventType:"keyDown", key: event.key, shiftKey: event.shiftKey, ctrlKey: event.ctrlKey, altKey: event.altKey});
+    parent.postMessage(message, "*");
+  }
+}, false);
+
+/////////////////////////
 
 /* eslint-disable-next-line no-unused-vars */
 const pdfjsVersion =
